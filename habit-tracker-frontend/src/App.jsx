@@ -5,7 +5,7 @@ function App() {
   const [newHabitName, setNewHabitName] = useState('')
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/habits')
+    fetch('https://fullstack-habit-tracker-o3lp.onrender.com/habits')
       .then(response => response.json())
       .then(data => setHabits(data))
   }, [])
@@ -14,7 +14,7 @@ function App() {
     e.preventDefault()
     if (!newHabitName) return
 
-    fetch('http://127.0.0.1:8000/habits', {
+    fetch('https://fullstack-habit-tracker-o3lp.onrender.com/habits', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: newHabitName }),
@@ -28,7 +28,7 @@ function App() {
 
   // 🔄 Function to toggle a habit's status
   const toggleHabit = (id) => {
-    fetch(`http://127.0.0.1:8000/habits/${id}`, {
+    fetch(`https://fullstack-habit-tracker-o3lp.onrender.com/habits/${id}`, {
       method: 'PUT',
     })
       .then(response => response.json())
